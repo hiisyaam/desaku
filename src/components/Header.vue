@@ -1,16 +1,18 @@
 <template>
-  <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 animate__animated animate__fadeInDown animate__delay-2s">
+  <header
+    class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 animate__animated animate__fadeInDown animate__delay-2s"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 flex items-center justify-center">
             <router-link to="/">
-              <img src="/src/assets/logo-desa.svg" alt="logo"/>
+              <img src="/src/assets/logo-desa.svg" alt="logo" />
             </router-link>
           </div>
-            <router-link to="/">
-              <h1 class="text-xl font-bold text-gray-900">Desa Sejahtera</h1>
-            </router-link>
+          <router-link to="/">
+            <h1 class="text-xl font-bold text-gray-900">Desa Sejahtera</h1>
+          </router-link>
         </div>
 
         <nav class="hidden md:flex space-x-2">
@@ -22,7 +24,7 @@
             :class="['nav-link', activeSection === item.id ? 'active' : '']"
           >
             {{ item.label }}
-        </a>
+          </a>
         </nav>
 
         <button
@@ -37,17 +39,18 @@
 
       <div v-if="isMenuOpen" class="md:hidden py-4 border-t">
         <nav class="flex flex-col space-y-2">
-          <button
+          <a
             v-for="item in menuItems"
             :key="item.id"
-            @click="scrollToSection('/#'+item.id)"
+            :href="'/#' + item.id"
+            @click="scrollToSection(item.id)"
             :class="[
               'nav-link text-left',
               activeSection === item.id ? 'active' : '',
             ]"
           >
             {{ item.label }}
-          </button>
+          </a>
         </nav>
       </div>
     </div>
