@@ -17,7 +17,7 @@
           <a
             v-for="item in menuItems"
             :key="item.id"
-            :href="'#' + item.id"
+            :href="'/#' + item.id"
             @click="scrollToSection(item.id)"
             :class="['nav-link', activeSection === item.id ? 'active' : '']"
           >
