@@ -40,7 +40,7 @@
           <button
             v-for="item in menuItems"
             :key="item.id"
-            @click="scrollToSection(item.id)"
+            @click="scrollToSection('/#'+item.id)"
             :class="[
               'nav-link text-left',
               activeSection === item.id ? 'active' : '',
